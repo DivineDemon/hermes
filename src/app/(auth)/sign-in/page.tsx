@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 
 import { LoginLink } from "@kinde-oss/kinde-auth-nextjs";
-import { Atom } from "lucide-react";
+import { Wind } from "lucide-react";
 
 import { buttonVariants } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -18,9 +18,9 @@ const Page = () => {
   return (
     <div className="flex h-screen w-full flex-col items-center justify-center gap-5">
       <form className="flex w-1/5 flex-col items-center justify-center gap-5 p-5">
-        <Atom className="size-12 text-primary" />
+        <Wind className="size-12 text-primary" />
         <span className="w-full text-center text-2xl font-semibold">
-          Sign in to <span className="text-primary">Ion</span>
+          Sign in to <span className="text-primary">Hermes</span>
         </span>
         <div className="flex w-full flex-col items-center justify-center gap-1.5">
           <Label
