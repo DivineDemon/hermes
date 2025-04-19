@@ -1,11 +1,14 @@
 // @ts-nocheck
 import { configs } from "@typescript-eslint/eslint-plugin";
+import { parseForESLint } from "@typescript-eslint/parser";
 import checkFile from "eslint-plugin-check-file";
+import PluginN from "eslint-plugin-n";
+import unusedImports from "eslint-plugin-unused-imports";
 import { defineConfig } from "eslint/config";
 
 export default defineConfig({
   languageOptions: {
-    parser: require("@typescript-eslint/parser"),
+    parser: parseForESLint,
   },
   extends: [
     "next/core-web-vitals",
@@ -16,8 +19,9 @@ export default defineConfig({
   ],
   plugins: {
     "check-file": checkFile,
-    n: require("eslint-plugin-n"),
+    n: PluginN,
     "@typescript-eslint": configs,
+    "unused-imports": unusedImports,
   },
   rules: {
     "@typescript-eslint/array-type": "off",
@@ -32,6 +36,17 @@ export default defineConfig({
     "@typescript-eslint/no-unused-vars": [
       "warn",
       {
+        argsIgnorePattern: "^_",
+        varsIgnorePattern: ".*",
+      },
+    ],
+    "unused-imports/no-unused-imports": "error",
+    "unused-imports/no-unused-vars": [
+      "warn",
+      {
+        vars: "all",
+        varsIgnorePattern: "^_",
+        args: "after-used",
         argsIgnorePattern: "^_",
       },
     ],

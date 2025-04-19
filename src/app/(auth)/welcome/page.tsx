@@ -19,7 +19,7 @@ const Page = async () => {
   const checkUser = await api.user.findUser();
 
   if (checkUser) {
-    redirect("/dashboard");
+    redirect("/mail");
   }
 
   const response = await api.user.syncUser({

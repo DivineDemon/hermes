@@ -32,17 +32,11 @@ export async function GET(req: NextRequest) {
 
     const { grantId, email } = response;
 
-    await db.user.update({
-      where: {
-        id: user.id,
-      },
+    await db.account.create({
       data: {
-        grantId: {
-          push: grantId,
-        },
-        grantEmail: {
-          push: email,
-        },
+        userId: user.id,
+        grantEmail: email,
+        grantId,
       },
     });
   } catch (error: Error | unknown) {
@@ -52,5 +46,5 @@ export async function GET(req: NextRequest) {
     );
   }
 
-  redirect("/dashboard");
+  redirect("/mail");
 }

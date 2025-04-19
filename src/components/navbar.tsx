@@ -32,7 +32,7 @@ const Navbar = async () => {
                   Sign out
                 </LogoutLink>
                 <Link
-                  href="/dashboard"
+                  href="/mail"
                   className={buttonVariants({
                     size: "sm",
                     className: "flex items-center gap-1",
